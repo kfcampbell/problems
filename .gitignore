@@ -1,0 +1,5 @@
+*.class
+/TopCoder/*.class
+/LeetCode/*.class
+/McDowell/*.class
+/TopCoder/ATaleOfThreeCities/*
