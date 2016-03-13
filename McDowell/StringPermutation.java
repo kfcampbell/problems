@@ -18,6 +18,7 @@ public class StringPermutation
   // not part of the original problem, but I'm interested in it anyway.
   // running time here is O(one.length()) plus whatever the overhead is for creating,
   // reversing, and comparing two charLists.
+  // also, note that this doesn't deal with spaces, punctuation, or capitalization at all.
   public static boolean isPalindrome(String one, String two)
   {
     if(one.length() != two.length())
