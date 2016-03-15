@@ -25,3 +25,5 @@ RemoveLinkedListElements.java -> Problem #203.
 ContainsDuplicates.java -> Problem #217.
 
 MinStack.java -> Problem #155.
+
+ReverseLinkedList.java -> Problem #206.
