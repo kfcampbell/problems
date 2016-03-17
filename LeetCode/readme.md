@@ -27,3 +27,7 @@ ContainsDuplicates.java -> Problem #217.
 MinStack.java -> Problem #155.
 
 ReverseLinkedList.java -> Problem #206.
+
+ValidAnagrams.java -> Problem #242.
+
+GroupAnagrams.java -> Problem #49.
