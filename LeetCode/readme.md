@@ -31,3 +31,7 @@ ReverseLinkedList.java -> Problem #206.
 ValidAnagrams.java -> Problem #242.
 
 GroupAnagrams.java -> Problem #49.
+
+ValidParentheses.java -> Problem #20.
+
+LongestValidParentheses.java -> Problem #32.
