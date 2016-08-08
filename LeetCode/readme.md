@@ -2,7 +2,7 @@
 
 The .java file name corresponds to the problem name on LeetCode where possible. Otherwise, the problem numbers are given below.
 
-If you have any questions, please email kfcampbell@scu.edu.
+If you have any questions, please email keeg4n.campbell@gmail.com
 
 # Problem Numbers
 
@@ -41,3 +41,5 @@ RemoveDuplicates.java -> Problem #26.
 PlusOne.java -> Problem #66.
 
 GuessNumber.cpp -> Problem #374.
+
+ReverseString.java -> Problem #344.
