@@ -39,3 +39,5 @@ LongestValidParentheses.java -> Problem #32.
 RemoveDuplicates.java -> Problem #26.  
 
 PlusOne.java -> Problem #66.
+
+GuessNumber.cpp -> Problem #374.
