@@ -20,7 +20,6 @@ namespace ProblemFour
         {
             List<List<int>> permutations = new List<List<int>> { numbers };
 
-            // missing logic to get the superset here.
             var permutes = GetPermutations<int>(numbers.ToArray());
             foreach(var item in permutes)
             {
