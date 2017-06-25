@@ -53,30 +53,5 @@ namespace BinaryTree
                 }
             }
         }
-
-        public Tree Delete(int value)
-        {
-            if(value == this.value)
-            {
-                this.rightChild.Insert(this.leftChild);
-                return this.rightChild;
-            }
-            else if(value < this.value)
-            {
-                if(this.leftChild != null)
-                {
-                    return this.leftChild.Delete(value);
-                }
-                return null;
-            }
-            else
-            {
-                if(this.rightChild != null)
-                {
-                    return rightChild.Delete(value);
-                }
-                return null;
-            }
-        }
     }
 }
