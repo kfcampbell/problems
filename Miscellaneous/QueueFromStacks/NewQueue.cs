@@ -45,7 +45,6 @@ namespace QueueFromStacks
             }
 
             return firstElement;
-
         }
 
         public int Count()
