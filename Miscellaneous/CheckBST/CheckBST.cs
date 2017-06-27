@@ -12,8 +12,8 @@ namespace CheckBST
         {
             this.value = value;
         }
-
     }
+
     class CheckBST
     {
         static void Main(string[] args)
