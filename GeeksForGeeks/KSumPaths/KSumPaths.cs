@@ -16,47 +16,34 @@ namespace KSumPaths
         }
     }
 
-    public class FindKSumPaths
+    class KSumPaths
     {
-        public int numberOfPaths = 0;
-
-        public void CalculateKSumPaths(int desiredSum, Tree head)
+        public static int CalculateKSumPaths(int desiredSum, Tree head)
         {
-            numberOfPaths = 0;
-            if (head == null) return;
-
-            numberOfPaths = head.value == desiredSum ? 1 : 0;
-            Stack<Tree> stack = new Stack<Tree>();
-            stack.Push(head);
-
-            CalculatePathsHelper(desiredSum, head.value, head.leftChild);
-            CalculatePathsHelper(desiredSum, head.value, head.rightChild);
+            if (head == null) return 0;
+            return CalculatePathsHelper(desiredSum, head.value, head.leftChild, 0) + CalculatePathsHelper(desiredSum, head.value, head.rightChild, 0);
         }
 
-        // this works but it's sloppy. i'd like to make this recursive somehow without forfeiting successful results on negatives.
-        private void CalculatePathsHelper(int desiredSum, int currentSum, Tree head)
+        private static int CalculatePathsHelper(int desiredSum, int currentSum, Tree head, int numberOfPaths)
         {
-            if (head == null) return;
+            if (head == null) return numberOfPaths;
             if (desiredSum == head.value + currentSum) numberOfPaths++;
             else if (head.leftChild != null && head.rightChild != null)
             {
-                CalculatePathsHelper(desiredSum, currentSum + head.value, head.leftChild);
-                CalculatePathsHelper(desiredSum, currentSum + head.value, head.rightChild);
+                return CalculatePathsHelper(desiredSum, currentSum + head.value, head.leftChild, numberOfPaths)
+                 + CalculatePathsHelper(desiredSum, currentSum + head.value, head.rightChild, numberOfPaths);
             }
             else if(head.leftChild != null)
             {
-                CalculatePathsHelper(desiredSum, currentSum + head.value, head.leftChild);
+                return CalculatePathsHelper(desiredSum, currentSum + head.value, head.leftChild, numberOfPaths);
             }
             else if(head.rightChild != null)
             {
-                CalculatePathsHelper(desiredSum, currentSum + head.value, head.rightChild);
+                return CalculatePathsHelper(desiredSum, currentSum + head.value, head.rightChild, numberOfPaths);
             }
+
+            return numberOfPaths;
         }
-
-    }
-
-    class KSumPaths
-    {
 
         static void Main(string[] args)
         {
@@ -73,10 +60,8 @@ namespace KSumPaths
             head.leftChild.leftChild = leftLeftGrandChild;
             head.rightChild.rightChild = rightGrandChild;
 
-            FindKSumPaths pathFinder = new FindKSumPaths();
-            pathFinder.CalculateKSumPaths(8, head);
-
-            Console.WriteLine($"number of paths found: {pathFinder.numberOfPaths}");
+            Console.WriteLine($"number of paths found: {CalculateKSumPaths(8, head)}");
+            Console.WriteLine($"number of paths found: {CalculateKSumPaths(76, head)}");
         }
     }
 }
