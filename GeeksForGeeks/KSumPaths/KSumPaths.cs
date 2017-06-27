@@ -20,30 +20,36 @@ namespace KSumPaths
         public static int CalculateKSumPaths(int desiredSum, Tree head)
         {
             if (head == null) return 0;
-            return CalculatePathsHelper(desiredSum, head.value, head.leftChild, 0) + CalculatePathsHelper(desiredSum, head.value, head.rightChild, 0);
+            var leftSum = CalculatePathsHelper(desiredSum, head.value, head.leftChild);
+            var rightSum = CalculatePathsHelper(desiredSum, head.value, head.rightChild);
+            return leftSum + rightSum;
         }
 
-        private static int CalculatePathsHelper(int desiredSum, int currentSum, Tree head, int numberOfPaths)
+        private static int CalculatePathsHelper(int desiredSum, int previousSum, Tree head)
         {
-            if (head == null) return numberOfPaths;
-            if (desiredSum == head.value + currentSum) numberOfPaths++;
+            if (head == null) return 0;
+            var currentSum = previousSum + head.value;
+
+            int numberOfPaths = 0;
+            if (desiredSum == currentSum) numberOfPaths++;
+
 
             if (head.leftChild != null && head.rightChild != null)
             {
-                return CalculatePathsHelper(desiredSum, currentSum + head.value, head.leftChild, numberOfPaths)
-                 + CalculatePathsHelper(desiredSum, currentSum + head.value, head.rightChild, numberOfPaths);
+                return numberOfPaths + CalculatePathsHelper(desiredSum, currentSum, head.leftChild)
+                 + CalculatePathsHelper(desiredSum, currentSum, head.rightChild);
             }
-            else if(head.leftChild != null)
+            else if (head.leftChild != null)
             {
-                return CalculatePathsHelper(desiredSum, currentSum + head.value, head.leftChild, numberOfPaths);
+                return numberOfPaths + CalculatePathsHelper(desiredSum, currentSum, head.leftChild);
             }
-            else if(head.rightChild != null)
+            else if (head.rightChild != null)
             {
-                return CalculatePathsHelper(desiredSum, currentSum + head.value, head.rightChild, numberOfPaths);
+                return numberOfPaths + CalculatePathsHelper(desiredSum, currentSum, head.rightChild);
             }
 
             // if both children are null
-            return numberOfPaths; 
+            return numberOfPaths;
         }
 
         static void Main(string[] args)
