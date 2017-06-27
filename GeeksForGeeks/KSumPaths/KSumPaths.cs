@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace KSumPaths
 {
@@ -28,7 +27,8 @@ namespace KSumPaths
         {
             if (head == null) return numberOfPaths;
             if (desiredSum == head.value + currentSum) numberOfPaths++;
-            else if (head.leftChild != null && head.rightChild != null)
+
+            if (head.leftChild != null && head.rightChild != null)
             {
                 return CalculatePathsHelper(desiredSum, currentSum + head.value, head.leftChild, numberOfPaths)
                  + CalculatePathsHelper(desiredSum, currentSum + head.value, head.rightChild, numberOfPaths);
@@ -42,7 +42,8 @@ namespace KSumPaths
                 return CalculatePathsHelper(desiredSum, currentSum + head.value, head.rightChild, numberOfPaths);
             }
 
-            return numberOfPaths;
+            // if both children are null
+            return numberOfPaths; 
         }
 
         static void Main(string[] args)
@@ -53,12 +54,16 @@ namespace KSumPaths
             Tree leftCenterGrandChild = new Tree(4);
             Tree leftLeftGrandChild = new Tree(1);
             Tree rightGrandChild = new Tree(-4);
+            Tree rightGreatGrandChild = new Tree(4);
+            Tree rightGreatGreatGrandChild = new Tree(-4);
 
             head.leftChild = leftChild;
             head.rightChild = rightChild;
             head.leftChild.rightChild = leftCenterGrandChild;
             head.leftChild.leftChild = leftLeftGrandChild;
             head.rightChild.rightChild = rightGrandChild;
+            head.rightChild.rightChild.rightChild = rightGreatGrandChild;
+            head.rightChild.rightChild.rightChild.rightChild = rightGreatGreatGrandChild;
 
             Console.WriteLine($"number of paths found: {CalculateKSumPaths(8, head)}");
             Console.WriteLine($"number of paths found: {CalculateKSumPaths(76, head)}");
