@@ -4,7 +4,8 @@ using System.Linq;
 
 namespace PairsWithGivenSum
 {
-    class Program
+    // Given an array and an integer, find all pairs in the array whose sum is equal to the integer.
+    class PairsWithGivenSum
     {
         static void Main(string[] args)
         {
