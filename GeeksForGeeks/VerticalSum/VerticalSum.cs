@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 
+
+// Given a Binary Tree, find vertical sum of the nodes that are in same vertical line. Print all sums through different vertical lines.
 namespace VerticalSum
 {
     public class Node
