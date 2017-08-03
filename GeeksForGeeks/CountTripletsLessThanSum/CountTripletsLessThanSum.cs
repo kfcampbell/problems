@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace CountTripletsLessThanSum
 {
+    // Find the count of triplets with a sum smaller than the given sum value.
     class CountTripletsLessThanSum
     {
         static void Main(string[] args)

@@ -4,6 +4,7 @@ namespace EvenOddArray
 {
     class EvenOddArray
     {
+        // Arrange the array such that odd elements occupy the odd positions and even elements occupy the even positions.
         static void Main(string[] args)
         {
             int[] testCaseOne = new int[] { 1, 2, 3, 4, 5, 6 };

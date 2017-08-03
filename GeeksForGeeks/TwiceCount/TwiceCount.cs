@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace TwiceCount
 {
+    // Given an array of strings, count which are repeated twice.
     class TwiceCount
     {
         static void Main(string[] args)
